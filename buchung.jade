@@ -1,0 +1,90 @@
+.container
+  h2 Buchung
+  .row
+    .col-sm-12.col-md-6
+      p.
+        Senden Sie uns eine unverbindliche Anfrage, wenn sie uns für Ihre Veranstaltung buchen möchten.
+        Wir nehmen innerhalb von 24 Stunden mit Ihnen Kontakt auf und rufen Sie gern zurück, wenn Sie uns eine Telefonnummer hinterlassen.
+      p.
+        Möchten Sie uns lieber telefonisch kontaktieren, freuen wir uns über Ihren Anruf unter:
+      p.contact-phone 0163 7345796
+      p Oder besuchen Sie uns in den sozialen Netzwerken:
+      .social-list
+        a(href="https://www.youtube.com/channel/UCYfTamAWln80M-faajYU4pQ")
+          i.fa.fa-youtube(aria-hidden="true")
+        a(href="https://www.facebook.com/feuertruppeflammeundfietsch/")
+          i.fa.fa-facebook(aria-hidden="true")
+        a(href="https://www.instagram.com/feuertruppe_feuershow/")
+          i.fa.fa-instagram(aria-hidden="true")
+        a(href="http://feuertruppe.business.site/")
+          i.fa.fa-google-plus-official(aria-hidden="true")
+        
+    .col-sm-12.col-md-6.contact-container
+      form#contact-form.contact-form(action="contact.php", method="post")
+        .input-container
+          label(for="name") Ihr Name *
+          input#user-name(type="text", name="user_name", required)
+        .input-container
+          label(for="mail") Ihre E-Mail-Adresse *
+          input#user-mail(type="text", name="user_mail", required)
+        .input-container
+          label(for="event-type") Art der Veranstaltung
+          input#event-type(type="text", name="event_type")
+        .input-container
+          label(for="event-date") Datum der Veranstaltung
+          input#event-date(type="text", name="event_date")
+        .input-container
+          label(for="msg") Ihre Nachricht *
+          textarea#user-msg(name="user_msg", rows="5" required)
+        .button-container
+          button#submit(type="submit") 
+            strong Anfrage absenden
+        #submitted 
+          br
+          |Ihre Anfrage wurde versandt. 
+!= partial("_footer")
+script.
+  $("#contact-form").submit(function(event) {
+    event.preventDefault();
+    var formData = $("#contact-form").serialize();
+    $.ajax({
+      type: "POST",
+      url: $("#contact-form").attr("action"),
+      data: formData
+    }).done(function(res) {
+      // display a success message
+      $("#submitted").css("display", "unset");
+      $("#submitted").innerHTML = res.body;
+      $("#contact-form").children("input").val("");
+      goog_report_conversion();
+    });
+  });
+
+  /* <![CDATA[ */
+  goog_snippet_vars = function() {
+    var w = window;
+    w.google_conversion_id = 968611297;
+    w.google_conversion_label = "NUeFCPjS13IQ4avvzQM";
+    w.google_remarketing_only = false;
+  }
+  // DO NOT CHANGE THE CODE BELOW.
+  goog_report_conversion = function(url) {
+    goog_snippet_vars();
+    window.google_conversion_format = "3";
+    var opt = new Object();
+    opt.onload_callback = function() {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    }
+    var conv_handler = window['google_trackConversion'];
+    if (typeof(conv_handler) == 'function') {
+      conv_handler(opt);
+    }
+  }
+  /* ]]> */
+script(src="//www.googleadservices.com/pagead/conversion_async.js")
+
+
+
+

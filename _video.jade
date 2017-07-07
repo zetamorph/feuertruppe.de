@@ -1,0 +1,10 @@
+mixin video(src)
+  .player
+    video.player__video.viewer(src=src)
+    .player__controls
+    .progress
+      .progress__filled
+    button.player__button.toggle(title="Play/Pause") &#5107B
+    input.player__slider(type="range" name="volume" min="0" max="1" step="0.05" value="1")
+    
+

@@ -1,0 +1,108 @@
+include _mixins
+.container
+  h2 Impressionen von unseren Feuershows
+  .row
+    .col-sm-12.col-md-6
+      .video-container#promo-video
+        .player
+          video.player__video.viewer(poster="assets/video/poster.jpg")
+            source(src="assets/video/promo.mp4" type="video/mp4")
+            source(src="assets/video/promo.webm" type="video/webm")
+          .player__controls
+            button.player__button.play(title="Play/Pause")
+              i.fa.fa-play 
+            .player__progress
+              .player__progress--filled
+            input.player__slider(type="range" name="volume" min="0" max="1" step="0.05" value="0.5")
+            button.player__button.mute(title="Stummschalten" aria-hidden="true")
+              i.fa.fa-volume-up
+            button.player__button.fullscreen(title="Vollbild")
+              i.fa.fa-expand
+    .col-sm-12.col-md-6
+      p.
+        Als professionelle Feuerkünstler können wir schon eine Vielzahl von Auftritten verbuchen, nicht nur in Jena, sondern auch in Erfurt, Weimar, Gera und ganz Deutschland. 
+        Jeder einzelne war nicht nur ein Erlebnis für unser Publikum, sondern auch eine Lernerfahrung für uns.
+        Hier sehen sie eine Zusammenstellung von vergangenen Feuershows bei Hochzeiten, Geburtstagen, Firmenfeiern und Festen aller Art.
+  //   
+    h3 Feuershow im Sonnenobservatorium Goseck
+    #gallery-slider-1.slider-ctrls-container
+      .slide-btn.slide-left-btn
+      .slider-img-container
+        img.slider-img.img-responsive(src="assets/img/gallery/slider1/1.jpg")
+      .slide-btn.slide-right-btn
+    .row
+      .col-sm-12.col-md-6
+        p.
+          Zum Mittsommerfest im Sonnenobservatorium nahe Naumburg gab es eine Feuershow mit Feuerjonglage, Feuerpoi, Feuer-Hulahoop und Akrobatikeinlagen. 
+          Passende musikalische Untermalung gab es von zwei Trommlern aus Jena, die den Takt vorgaben. Obwohl die Sonne gerade erst unterging, 
+          war die Feuershow ein voller Erfolg und unser Publikum war hellauf begeistert.
+      .col-sm-12.col-md-6
+        .quote-container
+          p.quote Ein toller Abschluss für den längsten Tag des Jahres
+  
+  
+    h3 Feuershow bei einer Geburtstagsfeier nahe Jena
+    #gallery-slider-1.slider-ctrls-container
+      .slide-btn.slide-left-btn
+      .slider-img-container
+        img.slider-img.img-responsive(src="assets/img/gallery/slider1/1.jpg")
+      .slide-btn.slide-right-btn
+    .row
+      .col-sm-12.col-md-6
+        p.
+          Zum Mittsommerfest im Sonnenobservatorium nahe Naumburg gab es eine Feuershow mit Feuerjonglage, Feuerpoi, Feuer-Hulahoop und Akrobatikeinlagen. 
+          Passende musikalische Untermalung gab es von zwei Trommlern aus Jena, die den Takt vorgaben. Obwohl die Sonne gerade erst unterging, 
+          war die Feuershow ein voller Erfolg und unser Publikum war hellauf begeistert.
+      .col-sm-12.col-md-6
+        .quote-container
+          p.quote Ein toller Abschluss für den längsten Tag des Jahres
+
+  h3 Feuershow bei einer Hochzeit in Lindig bei Jena
+  #gallery-slider-1.slider-ctrls-container
+    .slide-btn.slide-left-btn
+    .slider-img-container
+      img.slider-img.img-responsive(src="assets/img/gallery/slider1/frieda-flowerhoop-hochzeit-jena.jpg" alt="Feuershow mit Feuerhoop bei Hochzeit von Frieda in Jena")
+    .slide-btn.slide-right-btn
+  .row.gallery-row
+    .col-sm-12.col-md-6
+      p.
+        Bei einer Hochzeit in Lindig haben wir das frisch vermählte Ehepaar und seine Gäste mit Jonglage, Feuertanz und Akrobatik erfreut.
+        Auch eine romantische Partnernummer durfte natürlich nicht fehlen.
+    .col-sm-12.col-md-6
+      .quote-container
+        p.quote.no-quotes "Eine ganz tolle Show"
+  h3 Feuershow bei einer Geburtstagfeier nahe Jena
+  #gallery-slider-4.slider-ctrls-container
+    .slide-btn.slide-left-btn
+    .slider-img-container
+      img.slider-img.img-responsive(src="assets/img/gallery/slider4/johannes-feuerjonglage-geburtstag-jena.jpg" alt="Feuershow mit Jonglage bei Geburtstag von Johannes in Jena")
+    .slide-btn.slide-right-btn
+  .row.gallery-row
+    .col-sm-12.col-md-6
+      p.
+        Die Geburtstagsfeier in Dorndorf-Steudnitz erhielt mit unserem Auftritt einen feurigen Abschluss, von dem nicht nur die Kinder fasziniert waren. 
+        Jonglage, Feuerspucken und Feuerfächer, eine abwechslungsreiche Show.
+    .col-sm-12.col-md-6
+      .quote-container
+        p.quote.no-quotes "Bezaubernd"
+script(src="assets/js/Player.js")
+script(src="assets/js/GallerySlider.js")
+script.
+  const promoPlayer = new Player("promo-video");
+  promoPlayer.init();
+  const gallerySlider1 = new GallerySlider("gallery-slider-1", 
+    [
+      "assets/img/gallery/slider1/frieda-flowerhoop-hochzeit-jena.jpg", 
+      "assets/img/gallery/slider1/anna-feuerpoi-hochzeit-jena.jpg", 
+      "assets/img/gallery/slider1/martin-drachenstab-hochzeit-jena.jpg"
+    ]
+  );
+  gallerySlider1.init();
+  const gallerySlider4 = new GallerySlider("gallery-slider-4", 
+    [
+      "assets/img/gallery/slider4/johannes-feuerjonglage-geburtstag-jena.jpg", 
+      "assets/img/gallery/slider4/johannes-feuerpoi-geburtstag-jena.jpg", 
+      "assets/img/gallery/slider4/martin-feuerjonglage-geburtstag-jena.jpg"
+    ]
+  );
+  gallerySlider4.init();
